@@ -1,10 +1,11 @@
-import { SignIn } from '@clerk/nextjs';
 import { getTranslations } from 'next-intl/server';
+
+import { SignUp } from '@/components/reusable-components/auth/sign-up/sign-up';
 
 export async function generateMetadata(props: { params: { locale: string } }) {
   const t = await getTranslations({
     locale: props.params.locale,
-    namespace: 'SignIn',
+    namespace: 'SignUp',
   });
 
   return {
@@ -13,6 +14,6 @@ export async function generateMetadata(props: { params: { locale: string } }) {
   };
 }
 
-const SignInPage = () => <SignIn />;
+const SignInPage = () => <SignUp />;
 
 export default SignInPage;
