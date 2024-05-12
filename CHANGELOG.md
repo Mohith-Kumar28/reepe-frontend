@@ -1,3 +1,10 @@
+# 1.0.0 (2024-05-12)
+
+
+### Features
+
+* trying to add signin signup pages ([e941be8](https://github.com/Mohith-Kumar28/reepe-frontend/commit/e941be85db6349e4697771717266b2f03c3f1972))
+
 # [1.3.0](https://github.com/Mohith-Kumar28/ree-pe/compare/v1.2.0...v1.3.0) (2024-05-11)
 
 
