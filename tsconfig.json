@@ -56,6 +56,7 @@
     "**/*.tsx",
     ".storybook/*.ts",
     ".next/types/**/*.ts",
-    "src/libs/Env.mjs"
+    "src/libs/Env.mjs",
+    "src/components/reusable-components/atoms/phone-input/index.tss"
   ]
 }
