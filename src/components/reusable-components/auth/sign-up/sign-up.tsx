@@ -34,9 +34,9 @@ export const SignUp: React.FC<SignUpProps> = () => {
   const form = useForm<SignUpForm>({
     resolver: zodResolver(signUpFormSchema),
     defaultValues: {
-      // userName: '',
-      // phoneNumber: '',
-      otp: '',
+      userName: '',
+      phoneNumber: '',
+      // otp: '',
     },
   });
 
@@ -65,7 +65,7 @@ export const SignUp: React.FC<SignUpProps> = () => {
           <div className="grid gap-2 text-center">
             <h1 className="text-3xl font-bold">Sign Up</h1>
             <p className="text-balance text-muted-foreground">
-              Enter your email below to login to your account
+              {/* Enter your email below to login to your account */}
             </p>
           </div>
 

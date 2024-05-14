@@ -1,13 +1,11 @@
 import { isValidPhoneNumber } from 'react-phone-number-input';
 import { z } from 'zod';
 
-export const signUpFormSchema = z.object({
+export const signInFormSchema = z.object({
   phoneNumber: z
     .string()
     .refine(isValidPhoneNumber, { message: 'Invalid phone number' }),
-  userName: z.string().min(2, {
-    message: 'Username must be at least 2 characters.',
-  }),
+
   otp: z
     .string()
     .min(6, {
@@ -16,4 +14,4 @@ export const signUpFormSchema = z.object({
     .optional(),
 });
 
-export type SignUpForm = z.infer<typeof signUpFormSchema>;
+export type SignInForm = z.infer<typeof signInFormSchema>;
