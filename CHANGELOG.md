@@ -1,3 +1,10 @@
+# [1.2.0](https://github.com/Mohith-Kumar28/reepe-frontend/compare/v1.1.0...v1.2.0) (2024-05-14)
+
+
+### Features
+
+* added sign in ([d81d919](https://github.com/Mohith-Kumar28/reepe-frontend/commit/d81d919fce1832ad111b77855005b5969857da66))
+
 # [1.1.0](https://github.com/Mohith-Kumar28/reepe-frontend/compare/v1.0.0...v1.1.0) (2024-05-14)
 
 
