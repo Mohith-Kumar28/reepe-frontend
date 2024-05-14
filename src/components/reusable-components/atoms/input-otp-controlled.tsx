@@ -1,4 +1,3 @@
-import type { Dispatch, SetStateAction } from 'react';
 import React from 'react';
 
 import {
@@ -9,20 +8,22 @@ import {
 } from '@/components/ui/input-otp';
 
 interface InputOTPControlledProps {
-  value: string;
-  setOtpValue: Dispatch<SetStateAction<string>>;
+  // value: string;
+  // setOtpValue: Dispatch<SetStateAction<string>>;
 }
 
 export function InputOTPControlled({
-  value,
-  setOtpValue,
+  // value,
+  // setOtpValue,
+  ...props
 }: InputOTPControlledProps) {
   return (
     <div className="flex w-full justify-center space-y-2">
       <InputOTP
+        {...props}
         maxLength={6}
-        value={value}
-        onChange={(newValue) => setOtpValue(newValue)}
+        // value={value}
+        // onChange={(newValue) => setOtpValue(newValue)}
       >
         <InputOTPGroup>
           <InputOTPSlot index={0} />

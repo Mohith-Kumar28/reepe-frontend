@@ -1,23 +1,44 @@
 'use client';
 
+import { zodResolver } from '@hookform/resolvers/zod';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
+import { useForm } from 'react-hook-form';
 
 import { Button } from '@/components/ui/button';
+import {
+  Form,
+  FormControl,
+  FormDescription,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
-import { Label } from '@/components/ui/label';
 
 import { InputOTPControlled } from '../../atoms/input-otp-controlled';
+import { PhoneInput } from '../../atoms/phone-input';
+import { type SignUpForm, signUpFormSchema } from './data/schema';
 
 interface SignUpProps {
   // Define any props here if needed
 }
 
 export const SignUp: React.FC<SignUpProps> = () => {
-  const [otpValue, setOtpValue] = useState<string>('');
+  // const [otpValue, setOtpValue] = useState<string>('');
   const [showOTP, setShowOTP] = useState<boolean>(false); // Control OTP visibility and interactivity
   const [resendTimer, setResendTimer] = useState<number>(10); // Initialize resend timer
+
+  const form = useForm<SignUpForm>({
+    resolver: zodResolver(signUpFormSchema),
+    defaultValues: {
+      // userName: '',
+      // phoneNumber: '',
+      otp: '',
+    },
+  });
 
   // Function to handle OTP submission
   const handleSubmit = () => {
@@ -48,70 +69,110 @@ export const SignUp: React.FC<SignUpProps> = () => {
             </p>
           </div>
 
-          <div className="grid gap-2">
-            <Label htmlFor="phoneNumber">Phone Number</Label>
-            <Input
-              id="phoneNumber"
-              type="number"
-              placeholder=""
-              required
-              disabled={showOTP}
-            />
-          </div>
-          {!showOTP && (
-            <div className="grid gap-2">
-              <Label htmlFor="userName">User Name</Label>
-              <Input
-                id="userName"
-                type="text"
-                placeholder="Your Name"
-                required
+          <Form {...form}>
+            <form
+              onSubmit={form.handleSubmit(handleSubmit)}
+              className=" space-y-6"
+            >
+              <FormField
+                control={form.control}
+                name="userName"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>User name</FormLabel>
+                    <FormControl>
+                      <Input disabled={showOTP} {...field} />
+                    </FormControl>
+                    <FormDescription>
+                      {/* This is your public display name. */}
+                    </FormDescription>
+                    <FormMessage />
+                  </FormItem>
+                )}
               />
-            </div>
-          )}
-          {showOTP && (
-            <div className="grid gap-2">
-              <Label htmlFor="otp">OTP</Label>
-              <InputOTPControlled value={otpValue} setOtpValue={setOtpValue} />
-              <div className="flex justify-between">
-                <Button
-                  onClick={() => {
-                    setShowOTP(false);
-                  }}
-                  variant="link"
-
-                  // className="inline-block cursor-pointer text-sm underline"
-                >
-                  Change number
-                </Button>
-                {resendTimer > 0 && (
-                  <Button
-                    variant="link"
-                    disabled
-
-                    // className="inline-block cursor-pointer text-sm underline"
-                  >
-                    Resend OTP in {resendTimer} seconds
-                  </Button>
+              <FormField
+                control={form.control}
+                name="phoneNumber"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>Phone number</FormLabel>
+                    <FormControl>
+                      {/* <Input {...field} /> */}
+                      <PhoneInput disabled={showOTP} {...field} />
+                    </FormControl>
+                    <FormDescription>
+                      {/* This is your public display name. */}
+                    </FormDescription>
+                    <FormMessage />
+                  </FormItem>
                 )}
-                {resendTimer === 0 && (
-                  <Button
-                    onClick={() => {
-                      setResendTimer(10);
-                    }}
-                    variant="link"
+              />
 
-                    // className="inline-block cursor-pointer text-sm underline"
-                  >
-                    Resend OTP
-                  </Button>
-                )}
-              </div>
-            </div>
-          )}
-          <Button type="submit" onClick={handleSubmit} className="w-full">
-            {showOTP ? 'Login' : 'Submit OTP'}
-          </Button>
+              {showOTP && (
+                <FormField
+                  control={form.control}
+                  name="otp"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>One-Time Password</FormLabel>
+                      <FormControl>
+                        <>
+                          <InputOTPControlled
+                            // value={otpValue}
+                            // setOtpValue={setOtpValue}
+                            {...field}
+                          />
+                          <FormMessage />
+                          <div className="flex justify-between">
+                            <Button
+                              onClick={() => {
+                                setShowOTP(false);
+                              }}
+                              variant="link"
+
+                              // className="inline-block cursor-pointer text-sm underline"
+                            >
+                              Change number
+                            </Button>
+                            {resendTimer > 0 && (
+                              <Button
+                                variant="link"
+                                disabled
+
+                                // className="inline-block cursor-pointer text-sm underline"
+                              >
+                                Resend OTP in {resendTimer} seconds
+                              </Button>
+                            )}
+                            {resendTimer === 0 && (
+                              <Button
+                                onClick={() => {
+                                  setResendTimer(10);
+                                }}
+                                variant="link"
+
+                                // className="inline-block cursor-pointer text-sm underline"
+                              >
+                                Resend OTP
+                              </Button>
+                            )}
+                          </div>
+                        </>
+                      </FormControl>
+                      <FormDescription>
+                        {/* Please enter the one-time password sent to your phone. */}
+                      </FormDescription>
+                    </FormItem>
+                  )}
+                />
+              )}
+
+              <Button type="submit" variant="ringHover" className="w-full">
+                {showOTP ? 'Submit OTP' : 'Submit'}
+              </Button>
+            </form>
+          </Form>
+
           <div className="mt-4 text-center text-sm">
             Don&apos;t have an account?{' '}
             <Link href="/sign-in" className="underline">
