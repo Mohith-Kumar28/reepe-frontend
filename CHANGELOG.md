@@ -1,3 +1,10 @@
+# [1.1.0](https://github.com/Mohith-Kumar28/reepe-frontend/compare/v1.0.0...v1.1.0) (2024-05-14)
+
+
+### Features
+
+* improved sign-up form ([914ded7](https://github.com/Mohith-Kumar28/reepe-frontend/commit/914ded7cc8b2cc5a9c10af3dbd7288267de0fb40))
+
 # 1.0.0 (2024-05-12)
 
 
