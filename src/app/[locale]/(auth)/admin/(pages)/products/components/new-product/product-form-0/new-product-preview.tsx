@@ -31,9 +31,9 @@ import {
 import { ScrollArea } from '@/components/ui/scroll-area';
 import { Separator } from '@/components/ui/separator';
 
-export function Preview() {
+export function NewProductPreview() {
   return (
-    <div className="relative flex    flex-col rounded-xl bg-muted/50 p-4 lg:col-span-2">
+    <div className="">
       {/* <Badge variant="outline" className="absolute -top-3 right-0">
         Preview
       </Badge> */}
