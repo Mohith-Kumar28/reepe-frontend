@@ -17,6 +17,9 @@ export default withSentryConfig(
       eslint: {
         dirs: ['.'],
       },
+      images: {
+        domains: ['i.pravatar.cc'], // Add this line
+      },
       poweredByHeader: false,
       reactStrictMode: true,
       experimental: {

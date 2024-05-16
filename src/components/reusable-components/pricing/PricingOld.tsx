@@ -195,6 +195,7 @@ export default function PricingPage() {
                     : 'bg-white dark:bg-gray-900/80 ring-gray-300/70 dark:ring-gray-700',
                   'max-w-xs ring-1 rounded-3xl p-8 xl:p-10',
                   tier.highlighted ? styles.fancyGlassContrast : '',
+                  // tier.highlighted ? styles.fancyGlassContrast : '',
                 )}
               >
                 <h3
