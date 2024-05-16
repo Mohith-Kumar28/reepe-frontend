@@ -1,3 +1,10 @@
+# [1.3.0](https://github.com/Mohith-Kumar28/reepe-frontend/compare/v1.2.0...v1.3.0) (2024-05-16)
+
+
+### Features
+
+* updated new product drawer and form ([7f4ac37](https://github.com/Mohith-Kumar28/reepe-frontend/commit/7f4ac378f4417f843e3c4492ce162d69209031c5))
+
 # [1.2.0](https://github.com/Mohith-Kumar28/reepe-frontend/compare/v1.1.0...v1.2.0) (2024-05-14)
 
 
