@@ -39,38 +39,7 @@ const currencies = [
     value: 'gbp',
     label: 'GBP',
   },
-  {
-    value: 'inr',
-    label: 'INR',
-  },
-  {
-    value: 'usd',
-    label: 'USD',
-  },
-  {
-    value: 'eur',
-    label: 'EUR',
-  },
-  {
-    value: 'gbp',
-    label: 'GBP',
-  },
-  {
-    value: 'inr',
-    label: 'INR',
-  },
-  {
-    value: 'usd',
-    label: 'USD',
-  },
-  {
-    value: 'eur',
-    label: 'EUR',
-  },
-  {
-    value: 'gbp',
-    label: 'GBP',
-  },
+
   // Add more currencies as needed
 ];
 
