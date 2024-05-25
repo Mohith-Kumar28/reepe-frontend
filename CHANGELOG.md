@@ -1,3 +1,10 @@
+# [1.4.0](https://github.com/Mohith-Kumar28/reepe-frontend/compare/v1.3.0...v1.4.0) (2024-05-25)
+
+
+### Features
+
+* added bun ([c243ad7](https://github.com/Mohith-Kumar28/reepe-frontend/commit/c243ad70332e077856d862fd084670e10b1dc258))
+
 # [1.3.0](https://github.com/Mohith-Kumar28/reepe-frontend/compare/v1.2.0...v1.3.0) (2024-05-16)
 
 
